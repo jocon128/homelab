@@ -12,7 +12,7 @@ spec:
     path: apps/argocd/base/networking
     targetRevision: main
   destination:
-    namespace: networking
+    namespace: argocd
     name: in-cluster
   syncPolicy:
     automated:
