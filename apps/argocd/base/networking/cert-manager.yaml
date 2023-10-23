@@ -6,14 +6,17 @@ metadata:
   #   - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
-  source:
-    repoURL: https://charts.jetstack.io
-    chart: cert-manager
-    targetRevision: v1.13.1
-    helm:
-      releaseName: cert-manager
-      valueFiles:
-        - $values/apps/argocd/base/networking/cert-manager-values.yaml
+  sources:
+    - repoURL: https://charts.jetstack.io
+      chart: cert-manager
+      targetRevision: v1.13.1
+      helm:
+        releaseName: cert-manager
+        valueFiles:
+          - $values/apps/argocd/base/networking/cert-manager-values.yaml
+    - repoURL: "https://github.com/jamie-oconnell/homelab.git"
+      targetRevision: main
+      ref: values
   destination:
     namespace: cert-manager
     name: in-cluster
