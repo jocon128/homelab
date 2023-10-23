@@ -1,0 +1,39 @@
+startupapicheck:
+  enabled: false
+cainjector:
+  replicaCount: 1
+  resources:
+    limits:
+      cpu: 350m
+      memory: 512Mi
+    requests:
+      cpu: 150m
+      memory: 256Mi
+installCRDs: true
+replicaCount: 2
+resources:
+  limits:
+    cpu: 350m
+    memory: 512Mi
+  requests:
+    cpu: 150m
+    memory: 256Mi
+webhook:
+  replicaCount: 1
+  resources:
+    limits:
+      cpu: 350m
+      memory: 512Mi
+    requests:
+      cpu: 150m
+      memory: 256Mi
+# prometheus:
+#   enabled: true
+#   servicemonitor:
+#     enabled: true
+#     honorLabels: false
+#     interval: 60s
+#     path: /metrics
+#     prometheusInstance: default
+#     scrapeTimeout: 30s
+#     targetPort: 9402
