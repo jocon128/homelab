@@ -7,7 +7,7 @@ spec:
   sources:
     - repoURL: https://github.com/hashicorp/consul-k8s.git
       targetRevision: v0.25.0
-      path: ./charts/consul
+      path: /charts/consul
       helm:
         releaseName: consul
         valueFiles:
