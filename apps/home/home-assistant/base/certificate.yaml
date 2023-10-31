@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: homeassistant-cloudflare
+spec:
+  secretName: homeassistant-tls
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
+  commonName: home.cavillon.cloud
+  dnsNames:
+    - home.cavillon.cloud
