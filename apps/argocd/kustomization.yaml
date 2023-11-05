@@ -5,11 +5,13 @@ resources:
   # ArgoCD Projects
   - base/projects/core.yaml
   - base/projects/networking.yaml
+  - base/projects/utilites.yaml
   # - base/projects/home.yaml
 
   # Core Applications
   - base/core/argocd.yaml
   - base/core/networking.yaml
+  - base/core/utilites.yaml
 
 namespace: argocd
 images:
