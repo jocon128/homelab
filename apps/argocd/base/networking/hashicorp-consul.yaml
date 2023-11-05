@@ -6,7 +6,7 @@ spec:
   project: networking
   sources:
     - repoURL: https://github.com/hashicorp/consul-k8s.git
-      targetRevision: v1.2.2
+      targetRevision: v1.2.3
       path: charts/consul
       helm:
         releaseName: consul
