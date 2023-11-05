@@ -6,7 +6,7 @@ metadata:
   labels:
     app.kubernetes.io/category: utilities
 spec:
-  project: cluster
+  project: utilities
   source:
     repoURL: "https://github.com/jamie-oconnell/homelab.git"
     path: apps/argocd/base/utilities
