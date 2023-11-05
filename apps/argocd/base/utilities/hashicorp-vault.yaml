@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: vault
 spec:
-  project: utilites
+  project: utilities
   sources:
     - repoURL: https://github.com/hashicorp/vault-helm.git
       targetRevision: v0.25.0
@@ -11,7 +11,7 @@ spec:
       helm:
         releaseName: vault
         valueFiles:
-          - $values/apps/argocd/base/utilites/hashicorp-vault-values.yaml
+          - $values/apps/argocd/base/utilities/hashicorp-vault-values.yaml
     - repoURL: "https://github.com/jamie-oconnell/homelab.git"
       targetRevision: main
       ref: values
