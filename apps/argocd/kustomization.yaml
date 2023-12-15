@@ -6,12 +6,17 @@ resources:
   - base/projects/core.yaml
   - base/projects/networking.yaml
   - base/projects/utilities.yaml
+  - base/projects/tools.yaml
   # - base/projects/home.yaml
 
   # Core Applications
   - base/core/argocd.yaml
   - base/core/networking.yaml
   - base/core/utilities.yaml
+
+  # Tools Applications
+  - base/tools/awx-operator
+  - base/tools/awx
 
 namespace: argocd
 images:
