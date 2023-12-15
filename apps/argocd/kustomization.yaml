@@ -13,6 +13,7 @@ resources:
   - base/core/argocd.yaml
   - base/core/networking.yaml
   - base/core/utilities.yaml
+  - base/core/tools.yaml
 
   # Tools Applications
   - base/tools/awx-operator.yaml
