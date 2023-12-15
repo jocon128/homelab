@@ -13,8 +13,6 @@ spec:
     helm:
       releaseName: reloader
       values: |
-        kubernetes:
-          host: https://kubernetes.default
         reloader:
           isArgoRollouts: true
           isOpenshift: false
