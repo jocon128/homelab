@@ -19,6 +19,13 @@ resources:
   - base/tools/awx-operator.yaml
   - base/tools/awx.yaml
 
+patchesStrategicMerge:
+  - overlay/argocd-svc.yaml
+  - overlay/argocd-deployment.yaml
+  - overlay/argocd-cm.yaml
+  - overlay/argocd-rbac.yaml
+  - overlay/argocd-cr.yaml
+
 namespace: argocd
 images:
   - name: quay.io/argoproj/argocd
