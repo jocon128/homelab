@@ -1,32 +1,28 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-
-resources:
+kind:
+  Kustomization
   # ArgoCD Projects
+  # - base/projects/home.yaml
+  # Core Applications
+  # Tools Applications
+resources:
   - base/projects/core.yaml
   - base/projects/networking.yaml
   - base/projects/utilities.yaml
   - base/projects/tools.yaml
-  # - base/projects/home.yaml
-
-  # Core Applications
   - base/core/argocd.yaml
   - base/core/networking.yaml
   - base/core/utilities.yaml
   - base/core/tools.yaml
-
-  # Tools Applications
   - base/tools/awx-operator.yaml
   - base/tools/awx.yaml
-
-patchesStrategicMerge:
-  - overlay/argocd-svc.yaml
-  - overlay/argocd-deployment.yaml
-  - overlay/argocd-cm.yaml
-  - overlay/argocd-rbac.yaml
-  - overlay/argocd-cr.yaml
-
 namespace: argocd
 images:
   - name: quay.io/argoproj/argocd
     newTag: v2.8.4
+patches:
+  - path: overlay/argocd-svc.yaml
+  - path: overlay/argocd-deployment.yaml
+  - path: overlay/argocd-cm.yaml
+  - path: overlay/argocd-rbac.yaml
+  - path: overlay/argocd-cr.yaml
