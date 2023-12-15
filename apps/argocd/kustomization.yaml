@@ -15,8 +15,8 @@ resources:
   - base/core/utilities.yaml
 
   # Tools Applications
-  - base/tools/awx-operator
-  - base/tools/awx
+  - base/tools/awx-operator.yaml
+  - base/tools/awx.yaml
 
 namespace: argocd
 images:
