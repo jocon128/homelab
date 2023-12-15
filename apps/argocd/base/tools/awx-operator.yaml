@@ -9,9 +9,6 @@ spec:
       targetRevision: v2.9.0
       helm:
         releaseName: awx-operator
-    - repoURL: "https://github.com/jamie-oconnell/homelab.git"
-      targetRevision: main
-      ref: values
   destination:
     namespace: awx
     name: in-cluster
