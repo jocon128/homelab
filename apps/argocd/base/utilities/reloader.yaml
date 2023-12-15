@@ -5,7 +5,7 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: cluster
+  project: utilities
   source:
     repoURL: https://stakater.github.io/stakater-charts
     chart: reloader
