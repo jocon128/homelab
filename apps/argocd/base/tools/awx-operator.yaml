@@ -9,7 +9,7 @@ spec:
       targetRevision: v2.9.0
       helm:
         releaseName: awx-operator
-      chart: awx-operator/awx-operator
+      chart: awx-operator
   destination:
     namespace: awx
     name: in-cluster
