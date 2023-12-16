@@ -14,8 +14,6 @@ resources:
   - base/core/networking.yaml
   - base/core/utilities.yaml
   - base/core/tools.yaml
-  - base/tools/awx-operator.yaml
-  - base/tools/awx.yaml
 namespace: argocd
 images:
   - name: quay.io/argoproj/argocd
