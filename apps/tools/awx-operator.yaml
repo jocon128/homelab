@@ -1,32 +1,33 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: awx
+  name: awx-operator
 spec:
   project: tools
-  source:
-    repoURL: "https://github.com/jamie-oconnell/homelab.git"
-    path: apps/tools/awx
-    targetRevision: main
+  sources:
+    - repoURL: https://ansible.github.io/awx-operator/
+      targetRevision: v2.9.0
+      helm:
+        releaseName: awx-operator
+      chart: awx-operator
   destination:
     namespace: awx
     name: in-cluster
   syncPolicy:
     automated:
       prune: true
-      selfHeal: true
+      selfHeal: false
       allowEmpty: true
     syncOptions:
-      - Validate=true
-      - CreateNamespace=false
+      - Validate=false
+      - CreateNamespace=true
       - PrunePropagationPolicy=foreground
       - PruneLast=true
       - ApplyOutOfSyncOnly=false
       - Prune=true
-      - Replace=true
     retry:
       limit: 5
       backoff:
-        duration: 20s
+        duration: 5s
         factor: 2
-        maxDuration: 15m
+        maxDuration: 3m

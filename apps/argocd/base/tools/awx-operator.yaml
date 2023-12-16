@@ -4,39 +4,29 @@ metadata:
   name: awx-operator
 spec:
   project: tools
-  sources:
-    - repoURL: https://ansible.github.io/awx-operator/
-      targetRevision: v2.9.0
-      helm:
-        releaseName: awx-operator
-      chart: awx-operator
+  source:
+    repoURL: "https://github.com/jamie-oconnell/homelab.git"
+    path: apps/tools/awx-operator
+    targetRevision: main
   destination:
     namespace: awx
     name: in-cluster
   syncPolicy:
     automated:
       prune: true
-      selfHeal: false
+      selfHeal: true
       allowEmpty: true
     syncOptions:
-      - Validate=false
-      - CreateNamespace=true
+      - Validate=true
+      - CreateNamespace=false
       - PrunePropagationPolicy=foreground
       - PruneLast=true
       - ApplyOutOfSyncOnly=false
       - Prune=true
+      - Replace=true
     retry:
       limit: 5
       backoff:
-        duration: 5s
+        duration: 20s
         factor: 2
-        maxDuration: 3m
-  # ignoreDifferences:
-  #   - group: admissionregistration.k8s.io
-  #     kind: MutatingWebhookConfiguration
-  #     jsonPointers:
-  #       - /webhooks
-  #   - group: apps
-  #     kind: Deployment
-  #     jsonPointers:
-  #       - /spec/replicas
+        maxDuration: 15m
