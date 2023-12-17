@@ -10,10 +10,12 @@ resources:
   - base/projects/networking.yaml
   - base/projects/utilities.yaml
   - base/projects/tools.yaml
+  - base/projects/cluster.yaml
   - base/core/argocd.yaml
   - base/core/networking.yaml
   - base/core/utilities.yaml
   - base/core/tools.yaml
+  - base/core/data.yaml
 namespace: argocd
 images:
   - name: quay.io/argoproj/argocd
