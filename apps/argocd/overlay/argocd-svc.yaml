@@ -4,4 +4,4 @@ metadata:
   name: argocd-server
   namespace: argocd
 spec:
-  type: ClusterIP
+  type: LoadBalancer

@@ -16,33 +16,59 @@ resources:
   - base/core/utilities.yaml
   - base/core/tools.yaml
   - base/core/data.yaml
+
+  - base/cmp-plugin.yaml
+  - base/repo-role.yaml
+  - base/repo-rb.yaml
+
+  - https://raw.githubusercontent.com/argoproj/argo-cd/v2.8.4/manifests/install.yaml
 namespace: argocd
 images:
   - name: quay.io/argoproj/argocd
     newTag: v2.8.4
+
 patches:
   - path: overlay/argocd-cr.yaml
     target:
       kind: ClusterRole
       name: argocd-server
-      namespace: argocd
+  - path: overlay/argocd-svc.yaml
+    target:
+      kind: Service
+      name: argocd-server
   - path: overlay/argocd-deployment.yaml
     target:
       kind: Deployment
       name: argocd-server
-      namespace: argocd
   - path: overlay/argocd-repo-deployment.yaml
     target:
       kind: Deployment
       name: argocd-repo-server
-      namespace: argocd
   - path: overlay/argocd-cm.yaml
     target:
       kind: ConfigMap
       name: argocd-cm
-      namespace: argocd
   - path: overlay/argocd-rbac.yaml
     target:
       kind: ConfigMap
       name: argocd-rbac-cm
-      namespace: argocd
+  - target:
+      kind: ServiceMonitor
+    patch: |-
+      - op: replace
+        path: "/metadata/namespace"
+        value: "monitoring"
+  - patch: |-
+      - op: add
+        path: "/spec/strategy"
+        value:
+          type: "Recreate"
+      - op: replace
+        path: "/spec/template/spec/serviceAccountName"
+        value: "argocd-server"
+    target:
+      kind: Deployment
+      name: argocd-server
+
+commonAnnotations:
+  reloader.stakater.com/auto: "true"

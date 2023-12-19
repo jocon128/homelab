@@ -23,13 +23,8 @@ spec:
       containers:
         - name: argocd-server
           volumeMounts:
-            - name: styles
-              mountPath: /shared/app/custom
             - name: extensions
               mountPath: /tmp/extensions/
       volumes:
-        - configMap:
-            name: argocd-styles-cm
-          name: styles
         - name: extensions
           emptyDir: {}
