@@ -6,3 +6,4 @@ resources:
   - cm.yaml
   - db.yaml
   - secret.yaml
+  - pvc.yaml
