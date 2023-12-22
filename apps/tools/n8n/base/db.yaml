@@ -27,7 +27,7 @@ spec:
       database: n8n
       owner: n8n
   storage:
-    storageClass: iscsi
+    storageClass: longhorn
     size: 10Gi
   monitoring:
     enablePodMonitor: true
