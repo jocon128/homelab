@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: n8n
 spec:
-  project: apps
+  project: tools
   source:
     repoURL: "https://github.com/jamie-oconnell/homelab.git"
     path: apps/tools/n8n
