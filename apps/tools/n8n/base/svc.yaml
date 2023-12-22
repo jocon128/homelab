@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: n8n-internal
+  labels:
+    app: n8n-server
+  annotations:
+    kube-vip.io/vipHost: n8n
+spec:
+  ports:
+    - name: web
+      port: 80
+      targetPort: 5678
+      protocol: TCP
+  selector:
+    app: n8n-server
+  type: LoadBalancer
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: n8n
+  labels:
+    app: n8n-server
+spec:
+  selector:
+    app: n8n-server
+  ports:
+    - name: web
+      port: 80
+      targetPort: 5678
+      protocol: TCP
+  type: ClusterIP
