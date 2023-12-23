@@ -15,9 +15,6 @@ spec:
       labels:
         app: rundeck
     spec:
-      serviceAccountName: rundeck
-      securityContext:
-        fsGroup: 1000
       containers:
         - name: rundeck
           image: rundeck/rundeck:5.0.0
