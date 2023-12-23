@@ -1,0 +1,10 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ./base
+namespace: rundeck
+commonAnnotations:
+  reloader.stakater.com/auto: "true"
+images:
+  - name: rundeck/rundeck
+    newTag: 5.0.0
