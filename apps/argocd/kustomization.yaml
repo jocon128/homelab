@@ -17,6 +17,7 @@ resources:
   - base/core/utilities.yaml
   - base/core/tools.yaml
   - base/core/data.yaml
+  - base/core/monitoring.yaml
 
   - base/cmp-plugin.yaml
   - base/repo-role.yaml
