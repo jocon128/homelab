@@ -5,7 +5,7 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: apps
+  project: utilities
   source:
     repoURL: "https://github.com/jamie-oconnell/homelab.git"
     path: apps/utilities/crossplane
