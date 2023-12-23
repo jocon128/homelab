@@ -2,7 +2,7 @@ apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
   name: rundeck-database
-  namespace: tools
+  namespace: rundeck
 spec:
   imageName: ghcr.io/cloudnative-pg/postgresql:16.0
   instances: 1
