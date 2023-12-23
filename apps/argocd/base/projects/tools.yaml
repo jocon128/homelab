@@ -7,22 +7,8 @@ spec:
   sourceRepos:
     - "*"
   destinations:
-    - namespace: kube-system
-      server: https://kubernetes.default.svc
-    - namespace: argocd
-      server: https://kubernetes.default.svc
-    - namespace: cert-manager
-      server: https://kubernetes.default.svc
-    - namespace: networking
-      server: https://kubernetes.default.svc
-    - namespace: monitoring
-      server: https://kubernetes.default.svc
-    - namespace: consul
-      server: https://kubernetes.default.svc
-    - namespace: tools
-      server: https://kubernetes.default.svc
-    - namespace: awx
-      server: https://kubernetes.default.svc
+    - namespace: "*"
+      server: "*"
   clusterResourceWhitelist:
     - group: "*"
       kind: "*"
