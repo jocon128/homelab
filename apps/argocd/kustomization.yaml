@@ -11,6 +11,7 @@ resources:
   - base/projects/utilities.yaml
   - base/projects/tools.yaml
   - base/projects/cluster.yaml
+  - base/projects/monitoring.yaml
   - base/core/argocd.yaml
   - base/core/networking.yaml
   - base/core/utilities.yaml
