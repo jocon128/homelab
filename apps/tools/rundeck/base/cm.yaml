@@ -5,6 +5,7 @@ metadata:
 data:
   RUNDECK_DATABASE_URL: jdbc:postgresql://rundeck-database-rw.rundeck.svc.cluster.local:5432/rundeck?autoReconnect=true&useSSL=false
   RUNDECK_DATABASE_DRIVER: org.postgresql.Driver
+  RUNDECK_GRAILS_URL: http://192.168.8.115
   # RUNDECK_LOGGING_AUDIT_ENABLED:
   # RUNDECK_JAAS_MODULES_0:
   # RUNDECK_JAAS_LDAP_FLAG:
