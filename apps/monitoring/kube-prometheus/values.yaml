@@ -1,20 +1,11 @@
 alertmanager:
   alertmanagerSpec:
-    clusterAdvertiseAddress: false
-    forceEnableClusterMode: false
     image:
       registry: quay.io
       repository: prometheus/alertmanager
       tag: v0.25.0
-    listenLocal: false
-    logFormat: logfmt
-    logLevel: info
-    minReadySeconds: 0
     nodeSelector:
       kubernetes.io/arch: amd64
-    paused: false
-    podAntiAffinityTopologyKey: kubernetes.io/hostname
-    portName: http-web
     replicas: 1
     resources:
       limits:
@@ -23,55 +14,12 @@ alertmanager:
       requests:
         cpu: 80m
         memory: 256Mi
-    retention: 120h
-    routePrefix: /
-    securityContext:
-      fsGroup: 2000
-      runAsGroup: 2000
-      runAsNonRoot: true
-      runAsUser: 1000
-    useExistingSecret: false
   apiVersion: v2
   config:
-    global:
-      resolve_timeout: 5m
-    inhibit_rules:
-      - equal:
-          - namespace
-          - alertname
-        source_matchers:
-          - severity = critical
-        target_matchers:
-          - severity =~ warning|info
-      - equal:
-          - namespace
-          - alertname
-        source_matchers:
-          - severity = warning
-        target_matchers:
-          - severity = info
-      - equal:
-          - namespace
-        source_matchers:
-          - alertname = InfoInhibitor
-        target_matchers:
-          - severity = info
-    receivers:
-      - name: "null"
     route:
-      group_by:
-        - namespace
-      group_interval: 5m
-      group_wait: 30s
-      receiver: "null"
-      repeat_interval: 12h
       routes:
         - matchers:
             - alertname =~ "InfoInhibitor|Watchdog"
-          receiver: "null"
-    templates:
-      - /etc/alertmanager/config/*.tmpl
-  enabled: true
   ingress:
     enabled: false
   ingressPerReplica:
@@ -107,20 +55,7 @@ alertmanager:
     type: ClusterIP
   tplConfig: false
 cleanPrometheusOperatorObjectNames: false
-coreDns:
-  enabled: true
-  service:
-    port: 9153
-    targetPort: 9153
-  serviceMonitor:
-    labelLimit: 0
-    labelNameLengthLimit: 0
-    labelValueLengthLimit: 0
-    sampleLimit: 0
-    targetLimit: 0
 defaultRules:
-  appNamespacesTarget: .*
-  create: true
   rules:
     alertmanager: true
     configReloaders: true
@@ -149,12 +84,6 @@ defaultRules:
     nodeExporterRecording: true
     prometheus: true
     prometheusOperator: true
-  runbookUrl: https://runbooks.prometheus-operator.dev/runbooks
-global:
-  rbac:
-    create: true
-    createAggregateClusterRoles: false
-    pspEnabled: false
 grafana:
   adminPassword: <path:kv/data/kube-prometheus#grafana-admin-password>
   dashboardProviders:
@@ -314,53 +243,21 @@ grafana:
         datasource: Prometheus
         gnetId: 11312
         revision: 9
-  defaultDashboardsEnabled: true
-  defaultDashboardsTimezone: America/Sao_Paulo
-  enabled: true
+  defaultDashboardsTimezone: Australia/Brisbane
   env:
     GF_RENDERING_CALLBACK_URL: http://kube-prometheus-grafana.monitoring.svc.cluster.local
     GF_RENDERING_SERVER_URL: http://grafana-image-renderer.monitoring.svc.cluster.local/render
-  forceDeployDashboards: false
-  forceDeployDatasources: false
-  ingress:
-    enabled: false
   namespaceOverride: monitoring
   plugins:
     - grafana-image-renderer
     - grafana-piechart-panel
     - grafana-clock-panel
-  rbac:
-    pspEnabled: false
   service:
     enabled: true
     portName: service
     type: ClusterIP
-  # https://github.com/k3s-io/k3s/issues/3619#issuecomment-1425852034
   serviceMonitor:
-    enabled: true
-    path: /metrics
-    scheme: http
     scrapeTimeout: 60s
-  sidecar:
-    dashboards:
-      enabled: true
-      label: grafana_dashboard
-      labelValue: "1"
-      multicluster:
-        etcd:
-          enabled: false
-        global:
-          enabled: false
-      provider:
-        allowUiUpdates: false
-    datasources:
-      createPrometheusReplicasDatasources: false
-      defaultDatasourceEnabled: true
-      enabled: true
-      isDefaultDatasource: true
-      label: grafana_datasource
-      labelValue: "1"
-      uid: prometheus
 kube-state-metrics:
   metricLabelsAllowlist:
     - "pods=[*]"
@@ -369,18 +266,12 @@ kube-state-metrics:
     - "persistentvolumeclaims=[*]"
   prometheus:
     monitor:
-      enabled: true
       relabelings:
         - action: replace
           regex: (.*)
           replacement: $1
           sourceLabels: ["__meta_kubernetes_pod_node_name"]
           targetLabel: kubernetes_node
-  rbac:
-    create: true
-  releaseLabel: true
-  selfMonitor:
-    enabled: false
 kubeApiServer:
   enabled: false
 kubeControllerManager:
@@ -396,8 +287,6 @@ kubeScheduler:
 kubeStateMetrics:
   enabled: true
 kubelet:
-  enabled: true
-  namespace: kube-system
   serviceMonitor:
     metricRelabelings:
       # k3s exposes all metrics on all endpoints, relabel jobs that belong to other components
