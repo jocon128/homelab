@@ -3,10 +3,10 @@ kind: Kustomization
 
 helmCharts:
   - name: kube-prometheus-stack
-    releaseName: kube-prometheus
-    includeCRDs: false
-    version: 48.3.1
-    repo: https://github.com/prometheus-community/helm-charts.git
+    releaseName: kube-prometheus-stack
+    includeCRDs: true
+    version: 55.5.0
+    repo: https://prometheus-community.github.io/helm-charts
     valuesFile: values.yaml
 
 namespace: monitoring
