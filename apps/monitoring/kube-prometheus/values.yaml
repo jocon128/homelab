@@ -713,7 +713,7 @@ prometheusOperator:
     image:
       registry: quay.io
       repository: prometheus-operator/prometheus-config-reloader
-      tag: v0.67.1
+      tag: v0.70.0
     resources:
       limits:
         cpu: 80m
