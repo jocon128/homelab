@@ -12,13 +12,13 @@ spec:
     solvers:
       - selector:
           dnsNames:
-            - "*.cavillon.cloud"
-            - cavillon.cloud
-            - home.cavillon.cloud
-            - monitoring.cavillon.cloud
-            - grafana.cavillon.cloud
-            - ha.cavillon.cloud
-            - argo.cavillon.cloud
+            - "*.jamies.cloud"
+            - jamies.cloud
+            - home.jamies.cloud
+            - monitoring.jamies.cloud
+            - grafana.jamies.cloud
+            - ha.jamies.cloud
+            - argo.jamies.cloud
         dns01:
           cloudflare:
             email: jamielukeoconnell@gmail.com
