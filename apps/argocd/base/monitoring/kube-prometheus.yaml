@@ -6,7 +6,7 @@ spec:
   project: monitoring
   source:
     repoURL: "https://github.com/jamie-oconnell/homelab.git"
-    path: apps/monitoring/kube-prometheus
+    path: apps/monitoring/prometheus
     targetRevision: main
   destination:
     namespace: monitoring
