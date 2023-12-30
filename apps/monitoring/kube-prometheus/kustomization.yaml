@@ -3,7 +3,7 @@ kind: Kustomization
 
 helmCharts:
   - name: kube-prometheus-stack
-    releaseName: kube-prometheus-stack
+    releaseName: prometheus
     includeCRDs: true
     namespace: monitoring
     version: 54.2.2
