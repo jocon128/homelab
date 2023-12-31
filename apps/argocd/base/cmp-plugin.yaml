@@ -45,6 +45,9 @@ data:
           - bash
           - "-c"
           - |
+            echo "$ARGOCD_ENV_HELM_VALUES"
+            echo "$ARGOCD_APP_NAME"
+            echo "$ARGOCD_APP_NAMESPACE"
             helm template $ARGOCD_APP_NAME -n $ARGOCD_APP_NAMESPACE -f <(echo "$ARGOCD_ENV_HELM_VALUES") . |
             argocd-vault-plugin generate --verbose-sensitive-output -
       lockRepo: false
