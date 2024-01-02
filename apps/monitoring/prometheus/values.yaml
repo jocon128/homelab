@@ -92,14 +92,6 @@ grafana:
       providers:
         - disableDeletion: true
           editable: true
-          folder: unifi
-          name: unifi
-          options:
-            path: /var/lib/grafana/dashboards/unifi
-          orgId: 1
-          type: file
-        - disableDeletion: true
-          editable: true
           folder: services
           name: services
           options:
@@ -218,31 +210,6 @@ grafana:
         datasource: Prometheus
         gnetId: 12485
         revision: 1
-    unifi:
-      unifiPollerClientDPI:
-        datasource: Prometheus
-        gnetId: 11310
-        revision: 5
-      unifiPollerClientInsights:
-        datasource: Prometheus
-        gnetId: 11315
-        revision: 9
-      unifiPollerNetworkSites:
-        datasource: Prometheus
-        gnetId: 11311
-        revision: 5
-      unifiPollerUAPInsights:
-        datasource: Prometheus
-        gnetId: 11314
-        revision: 10
-      unifiPollerUSGInsights:
-        datasource: Prometheus
-        gnetId: 11313
-        revision: 9
-      unifiPollerUSWInsights:
-        datasource: Prometheus
-        gnetId: 11312
-        revision: 9
   defaultDashboardsTimezone: Australia/Brisbane
   env:
     GF_RENDERING_CALLBACK_URL: http://kube-prometheus-grafana.monitoring.svc.cluster.local
@@ -380,12 +347,6 @@ prometheus:
     minAvailable: 1
   prometheusSpec:
     additionalScrapeConfigs:
-      - job_name: unifipoller
-        metrics_path: /metrics
-        scrape_interval: 30s
-        static_configs:
-          - targets:
-              - unifi-poller-svc.unifi.svc.cluster.local:9130
       - authorization:
           credentials: <path:kv/data/ha#auth-token>
         job_name: hass
