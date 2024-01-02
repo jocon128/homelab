@@ -8,6 +8,8 @@ spec:
     repoURL: "https://github.com/jamie-oconnell/homelab.git"
     path: apps/monitoring/prometheus
     targetRevision: main
+    plugin:
+      name: argocd-vault-plugin-kustomize
   destination:
     namespace: monitoring
     name: in-cluster

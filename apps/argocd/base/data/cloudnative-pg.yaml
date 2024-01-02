@@ -8,6 +8,8 @@ spec:
     repoURL: "https://github.com/jamie-oconnell/homelab.git"
     path: apps/data/postgres/cloudnative
     targetRevision: main
+    plugin:
+      name: argocd-vault-plugin-kustomize
   destination:
     namespace: cnpg-system
     name: in-cluster
