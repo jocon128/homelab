@@ -444,7 +444,7 @@ prometheus:
           resources:
             requests:
               storage: 30Gi
-          storageClassName: iscsi
+          storageClassName: longhorn
     walCompression: true
   service:
     externalTrafficPolicy: Cluster
