@@ -600,7 +600,7 @@ prometheusOperator:
   thanosImage:
     registry: quay.io
     repository: thanos/thanos
-    tag: v0.34.0
+    tag: v0.34.1
   verticalPodAutoscaler:
     enabled: false
     updatePolicy:
@@ -631,7 +631,7 @@ thanosRuler:
     image:
       registry: quay.io
       repository: thanos/thanos
-      tag: v0.34.0
+      tag: v0.34.1
     listenLocal: false
     logFormat: logfmt
     logLevel: info
