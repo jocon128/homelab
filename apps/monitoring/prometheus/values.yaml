@@ -3,7 +3,7 @@ alertmanager:
     image:
       registry: quay.io
       repository: prometheus/alertmanager
-      tag: v0.26.0
+      tag: v0.27.0
     nodeSelector:
       kubernetes.io/arch: amd64
     replicas: 1
@@ -391,7 +391,7 @@ prometheus:
     image:
       registry: quay.io
       repository: prometheus/prometheus
-      tag: v2.49.1
+      tag: v2.50.1
     listenLocal: false
     logFormat: logfmt
     logLevel: info
@@ -544,7 +544,7 @@ prometheusOperator:
     pullPolicy: IfNotPresent
     registry: quay.io
     repository: prometheus-operator/prometheus-operator
-    tag: v0.71.0
+    tag: v0.71.2
   kubeletService:
     enabled: false
   namespaces:
@@ -563,7 +563,7 @@ prometheusOperator:
     image:
       registry: quay.io
       repository: prometheus-operator/prometheus-config-reloader
-      tag: v0.71.0
+      tag: v0.71.2
     resources:
       limits:
         cpu: 80m
@@ -600,7 +600,7 @@ prometheusOperator:
   thanosImage:
     registry: quay.io
     repository: thanos/thanos
-    tag: v0.33.0
+    tag: v0.34.1
   verticalPodAutoscaler:
     enabled: false
     updatePolicy:
@@ -631,7 +631,7 @@ thanosRuler:
     image:
       registry: quay.io
       repository: thanos/thanos
-      tag: v0.33.0
+      tag: v0.34.1
     listenLocal: false
     logFormat: logfmt
     logLevel: info
