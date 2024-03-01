@@ -18,7 +18,6 @@ resources:
   - base/core/tools.yaml
   - base/core/data.yaml
   - base/core/monitoring.yaml
-  - base/networking/cloudflared.yaml
 
   - base/cmp-plugin.yaml
   - base/repo-role.yaml
