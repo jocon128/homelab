@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: external-dns-cloudflare
+  name: cloudflared
 spec:
-  project: cluster
+  project: networking
   source:
     repoURL: "https://github.com/jamie-oconnell/homelab.git"
-    path: apps/networking/external-dns
+    path: apps/networking/cloudflared
     targetRevision: main
   destination:
     namespace: networking
