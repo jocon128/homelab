@@ -7,3 +7,5 @@ resources:
   - db.yaml
   - secret.yaml
   - pvc.yaml
+  - ingress.yaml
+  - cert.yaml
