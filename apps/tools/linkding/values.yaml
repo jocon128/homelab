@@ -2,4 +2,4 @@ service:
   # -- Create a service for exposing this chart.
   enabled: true
   # -- The service type used.
-  type: LoadBalancer
+  type: ClusterIP
