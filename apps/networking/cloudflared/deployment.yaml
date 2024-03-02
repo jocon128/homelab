@@ -40,7 +40,7 @@ spec:
               mountPath: /etc/cloudflared/creds
               readOnly: true
             - name: cert
-              mountPath: ~/.cloudflared/
+              mountPath: /etc/.cloudflared/certs
               readOnly: true
           resources:
             limits:

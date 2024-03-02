@@ -23,4 +23,4 @@ data:
   TUNNEL_LOGLEVEL: "warn"
   TUNNEL_PROTO_LOGLEVEL: "warn"
   TUNNEL_TRANSPORT_PROTOCOL: "auto"
-  TUNNEL_ORIGIN_CERT: "~/.cloudflared/cert.pem"
+  TUNNEL_ORIGIN_CERT: "/etc/cloudflared/certs/cert.pem"
