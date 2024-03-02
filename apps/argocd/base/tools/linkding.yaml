@@ -1,0 +1,50 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: linkding
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: utilities
+  source:
+    repoURL: "https://github.com/jamie-oconnell/homelab.git"
+    path: apps/tools/linkding
+    targetRevision: main
+    plugin:
+      name: argocd-vault-plugin-kustomize
+  destination:
+    namespace: linkding
+    name: in-cluster
+  info:
+    - name: "Github Repository:"
+      value: >-
+        https://github.com/pascaliske/helm-charts/
+    - name: "Chart location:"
+      value: >-
+        https://github.com/pascaliske/helm-charts/tree/master/charts/linkding
+    - name: "Official Website:"
+      value: >-
+        https://github.com/sissbruecker/linkding
+    - name: "Documentation:"
+      value: >-
+        https://github.com/sissbruecker/linkding/tree/master/docs
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: false
+    # managedNamespaceMetadata:
+    #   labels:
+    #     prometheus: enabled
+    syncOptions:
+      - Validate=false
+      - CreateNamespace=true
+      - Prune=true
+      - RespectIgnoreDifferences=true
+      - ServerSideApply=true
+    retry:
+      limit: 5
+      backoff:
+        duration: 60s
+        factor: 2
+        maxDuration: 15m
