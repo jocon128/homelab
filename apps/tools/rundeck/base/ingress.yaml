@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: rundeck
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: rundeck.jamies.cloud
+    external-dns.alpha.kubernetes.io/target: 192.168.8.119
+    cert-manager.io/cluster-issuer: letsencrypt-production
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: rundeck.jamies.cloud
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: rundeck-svc
+                port:
+                  name: web
+  tls:
+    - hosts:
+        - rundeck.jamies.cloud
+      secretName: rundeck-tls

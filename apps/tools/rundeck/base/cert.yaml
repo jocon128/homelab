@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: rundeck-tls
+  namespace: tools
+spec:
+  secretName: rundeck-tls
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
+  commonName: rundeck.jamies.cloud
+  dnsNames:
+    - rundeck.jamies.cloud
