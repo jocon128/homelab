@@ -19,6 +19,7 @@ spec:
             - grafana.jamies.cloud
             - ha.jamies.cloud
             - argo.jamies.cloud
+            - links.jamies.cloud
         dns01:
           cloudflare:
             email: jamielukeoconnell@gmail.com
