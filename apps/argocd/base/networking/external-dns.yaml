@@ -8,6 +8,8 @@ spec:
     repoURL: "https://github.com/jamie-oconnell/homelab.git"
     path: apps/networking/external-dns
     targetRevision: main
+    plugin:
+      name: argocd-vault-plugin-kustomize
   destination:
     namespace: networking
     name: in-cluster
