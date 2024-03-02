@@ -10,11 +10,11 @@ spec:
       targetRevision: v1.1.0
       helm:
         releaseName: linkding
-        # valueFiles:
-        #   - $values/apps/argocd/base/tools/linkding.yaml
-    # - repoURL: "https://github.com/jamie-oconnell/homelab.git"
-    #   targetRevision: main
-    #   ref: values
+        valueFiles:
+          - $values/apps/argocd/base/tools/linkding-values.yaml
+    - repoURL: "https://github.com/jamie-oconnell/homelab.git"
+      targetRevision: main
+      ref: values
   destination:
     namespace: linkding
     name: in-cluster
