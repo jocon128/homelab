@@ -1,8 +1,8 @@
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: kured # Must match `--ds-name`
-  namespace: kube-system # Must match `--ds-namespace`
+  name: kured
+  namespace: kube-system
 spec:
   selector:
     matchLabels:
@@ -15,7 +15,7 @@ spec:
         name: kured
     spec:
       serviceAccountName: kured
-      hostPID: true # Facilitate entering the host mount namespace via init
+      hostPID: true
       restartPolicy: Always
       containers:
         - name: kured
@@ -34,10 +34,10 @@ spec:
                   fieldPath: spec.nodeName
           command:
             - /usr/bin/kured
-              - --drain-grace-period=-1
-              - --ds-namespace=kube-system
-              - --ds-name=kured
-              - --log-format=text
-              - --metrics-host="0.0.0.0"
-              - --metrics-port=8080
-              - --concurrency=1
+            - --drain-grace-period=-1
+            - --ds-namespace=kube-system
+            - --ds-name=kured
+            - --log-format=text
+            - --metrics-host="0.0.0.0"
+            - --metrics-port=8080
+            - --concurrency=1
