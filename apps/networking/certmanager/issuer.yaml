@@ -22,6 +22,7 @@ spec:
             - links.jamies.cloud
             - n8n.jamies.cloud
             - rundeck.jamies.cloud
+            - awx.jamies.cloud
         dns01:
           cloudflare:
             email: jamielukeoconnell@gmail.com
