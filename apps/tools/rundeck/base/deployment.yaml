@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: rundeck
-          image: rundeck/rundeck:5.0.0
+          image: rundeck/rundeck:5.1.0
           ports:
             - containerPort: 4440
           env:
