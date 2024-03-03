@@ -1,12 +1,18 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-resources:
-  - https://github.com/kubereboot/kured/releases/download/1.14.0/kured-1.14.0-dockerhub.yaml
-
-patchesStrategicMerge:
-  - overlay/daemonset.yaml
 
 namespace: kube-system
+
+helmCharts:
+  - name: kured
+    releaseName: kured
+    namespace: kube-system
+    version: 1.15.0
+    repo: https://kubereboot.github.io/charts
+    valuesFile: values.yaml
+
+commonLabels:
+  app.kubernetes.io/project: kured
 
 commonAnnotations:
   reloader.stakater.com/auto: "true"
