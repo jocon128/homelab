@@ -6,6 +6,8 @@ metadata:
 spec:
   service_type: ClusterIP
   ingress_type: Ingress
-  ingress_hosts:
-    - hostname: awx.jamies.cloud
-      tls_secret: awx-tls
+  ingress_annotations: |
+    cert-manager.io/cluster-issuer: letsencrypt-production
+    kubernetes.io/ingress.class: nginx
+  hostname: awx.jamies.cloud
+  ingress_tls_secret: awx-tls
