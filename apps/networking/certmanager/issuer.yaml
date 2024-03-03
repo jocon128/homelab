@@ -21,6 +21,7 @@ spec:
             - argo.jamies.cloud
             - links.jamies.cloud
             - n8n.jamies.cloud
+            - rundeck.jamies.cloud
         dns01:
           cloudflare:
             email: jamielukeoconnell@gmail.com
