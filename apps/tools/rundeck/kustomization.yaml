@@ -7,4 +7,4 @@ commonAnnotations:
   reloader.stakater.com/auto: "true"
 images:
   - name: rundeck/rundeck
-    newTag: 5.1.1
+    newTag: 5.1.2
