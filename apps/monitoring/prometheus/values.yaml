@@ -544,7 +544,7 @@ prometheusOperator:
     pullPolicy: IfNotPresent
     registry: quay.io
     repository: prometheus-operator/prometheus-operator
-    tag: v0.73.2
+    tag: v0.74.0
   kubeletService:
     enabled: false
   namespaces:
