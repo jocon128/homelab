@@ -391,7 +391,7 @@ prometheus:
     image:
       registry: quay.io
       repository: prometheus/prometheus
-      tag: v2.52.0
+      tag: v2.53.0
     listenLocal: false
     logFormat: logfmt
     logLevel: info
