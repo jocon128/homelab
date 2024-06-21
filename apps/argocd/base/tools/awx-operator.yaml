@@ -6,7 +6,7 @@ spec:
   project: tools
   sources:
     - repoURL: https://ansible.github.io/awx-operator/
-      targetRevision: 2.17.0
+      targetRevision: 2.18.0
       helm:
         releaseName: awx-operator
       chart: awx-operator
