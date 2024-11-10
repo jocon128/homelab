@@ -4,7 +4,7 @@ commonAnnotations:
 image:
   repository: ghcr.io/cloudnative-pg/cloudnative-pg
   pullPolicy: IfNotPresent
-  tag: 1.24.0
+  tag: 1.24.1
 config:
   data:
     CREATE_ANY_SERVICE: "true"
