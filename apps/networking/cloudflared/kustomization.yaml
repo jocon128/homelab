@@ -5,4 +5,4 @@ resources:
   - deployment.yaml
 images:
   - name: erisamoe/cloudflared
-    newTag: 2024.9.1
+    newTag: 2024.12.2
